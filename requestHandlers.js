@@ -67,6 +67,24 @@ function show(response) {
 		}
 	});
 }
+
+function sockets(response) {
+	console.log("Request handler 'sockets' was called.");
+	fs.readFile("./index.html", function(error, file) {
+		if (error) {
+			response.writeHead(500);
+			response.write(error);
+			response.end();
+		}
+		else {
+			response.writeHead(200);
+			response.write(file);
+			response.end();
+		}
+	});
+}
+
 exports.start = start;
 exports.upload = upload;
 exports.show = show;
+exports.sockets = sockets;
