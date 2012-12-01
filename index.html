@@ -4,7 +4,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         // Make a socket connection and wait to RECEIVE custom 'hello' event
-        var socket = io.connect('http://50.63.56.71:8081');
+        var socket = io.connect('http://50.63.56.71');
         socket.on('updateConnected', function (data) {
 		console.log("Recieved: " + data);
                 document.querySelector("#visitor").innerHTML = data;
