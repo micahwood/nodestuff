@@ -21,6 +21,9 @@ function start(route, handle) {
 		numConnected++;
 		console.log("Users connected: " + numConnected);
 		socket.emit("updateConnected", numConnected);
+		// Update all other users to show new connection
+		socket.broadcast.emit("updateConnected", numConnected);
+
 		socket.on("checking the mic", function(text) {
 			console.log(text);
 		});
